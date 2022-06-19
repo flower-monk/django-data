@@ -1,0 +1,60 @@
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    图片
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">折线图</div>
+            <div class="panel-body">
+                图1
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">柱状图</div>
+                        <div class="panel-body">
+                            <div id="bar" style="width:1000px; height:600px;"></div>
+                            <script>
+                                var chart = echarts.init(document.getElementById('bar'), 'white', {renderer: 'canvas'});
+                                $(
+                                    function () {
+                                        fetchData(chart);
+                                        setInterval(fetchData, 5000);
+                                    }
+                                );
+                                function fetchData() {
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "http://127.0.0.1:8000/wordpad/bar",
+                                        dataType: 'json',
+                                        success: function (result) {
+                                            chart.setOption(result.data);
+                                        }
+                                    });
+                                }
+
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">饼图</div>
+                        <div class="panel-body">
+                            图3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
