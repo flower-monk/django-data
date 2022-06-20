@@ -7,25 +7,20 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <!-- 引入monikai.css -->
     <link rel="stylesheet" href="{% static 'md_css/monokai.css' %}">
-<!--    <link rel="stylesheet" href="{% static 'layer/theme/default/layer.css' %}">-->|
     <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
-<!--    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>-->
-    <script type="text/javascript" src="{% static 'echarts/echarts.min.js' %}"></script>-->
+<!--    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>-->
+    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'echarts/echarts.js' %}"></script>
 </head>
 
 <body>
     {% include 'header.html' %}
     {% block content %}{% endblock content %}
     {% include 'footer.html' %}
-<!--    <script src="{% static 'jquery/jquery-3.6.0.js' %}"></script>-->
     <script src="{% static 'layer/layer.js' %}"></script>
-
 <!--    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/2.11.5/cjs/popper.js"></script>-->
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<!--    <script src="{% static 'echarts/echarts.js' %}"></script>-->
-<!--    <script src="{% static 'echarts/echarts.min.js' %}"></script>-->
 
 </body>
 
