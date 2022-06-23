@@ -20,7 +20,7 @@ docker run \
 -p 8000:8000 \
 --privileged=true \
 -d python:3.9 \
-bash -c "pip install --no-index --find-links=./packages/ -r requirements.txt && python3 manage.py runserver 0.0.0.0:8000 && sleep 50000"
+bash -c "pip3 install ./packages/* && python3 manage.py runserver 0.0.0.0:8000 && sleep 50000"
 
 
 
