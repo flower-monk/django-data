@@ -19,6 +19,7 @@ docker run \
 -w /usr/src/app \
 -p 8000:8000 \
 --privileged=true \
+--link mysql-data
 -d python:3.9 \
 bash -c "pip3 install ./packages/* && python3 manage.py runserver 0.0.0.0:8000 && sleep 50000"
 
