@@ -11,8 +11,6 @@ urlpatterns = [
     path('article-delete/<int:id>', views.article_delete, name="article_delete"),
     path('article-safe-delete/<int:id>/', views.article_safe_delete, name='article_safe_delete'),
     path('article-update/<int:id>/', views.article_update, name="article_update"),
-    path('bar/', views.ChartView.as_view(), name='bar'),
-    path('index/', views.IndexView.as_view(), name='index'),
 ]
 
 

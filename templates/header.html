@@ -16,7 +16,7 @@
           <a class="nav-link" href="{% url 'wordpad:article_list' %}">备忘录</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'wordpad:index' %}">统计</a>
+          <a class="nav-link" href="{% url 'chart:index' %}">统计</a>
         </li>
         {% if user.is_authenticated %}
         <!-- 如果用户已经登录，则显示用户名下拉框 -->

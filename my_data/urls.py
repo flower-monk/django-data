@@ -23,6 +23,7 @@ import notifications.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wordpad/', include('wordpad.urls', namespace='wordpad')),
+    path('chart/', include('chart.urls', namespace='chart')),
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),
     # path('password-reset/', include('password_reset.urls')),

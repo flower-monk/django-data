@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'userprofile',
     'taggit',
     'notifications',
+    'chart',
 ]
 
 MIDDLEWARE = [
