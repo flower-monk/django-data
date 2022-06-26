@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .view import index
 import notifications.urls
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wordpad/', include('wordpad.urls', namespace='wordpad')),
+    path('', index, name='home'),
+    path('home', index, name='home'),
     path('chart/', include('chart.urls', namespace='chart')),
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
     path('inbox/notifications/', include(notifications.urls, namespace='notifications')),
     # path('password-reset/', include('password_reset.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

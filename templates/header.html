@@ -3,7 +3,10 @@
   <div class="container">
 
     <!-- 导航栏商标 -->
-    <a class="navbar-brand" href="#">Daisy's home</a>
+      <span>
+          <i class="fa-solid fa-crown" style="color: yellow;"></i>
+          <a class="navbar-brand" href="{% url 'home' %}">Daisy's home</a>
+      </span>
 
     <!-- 导航入口 -->
     <div>
@@ -12,8 +15,14 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'wordpad:article_create' %}">新增</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'wordpad:article_list' %}">备忘录</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                常用
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'wordpad:article_list' %}">备忘录</a>
+                <a class="dropdown-item" href="{% url 'chart:index' %}">统计</a>
+            </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'chart:index' %}">统计</a>
@@ -21,7 +30,7 @@
         {% if user.is_authenticated %}
         <!-- 如果用户已经登录，则显示用户名下拉框 -->
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ user.username }}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

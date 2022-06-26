@@ -3,21 +3,15 @@
 {% load static %}
 
 {% block title %}
-    图片
+    统计分析
 {% endblock title %}
 
 {% block content %}
 
 <div class="container">
     <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">折线图</div>
-            <div class="panel-body">
-                图1
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8">
+        <div class="col-md-10">
+            <div class="col">
                 <div class="panel panel-default">
                     <div class="panel-heading">柱状图</div>
                         <div class="panel-body">
@@ -33,7 +27,7 @@
                                 function fetchData() {
                                     $.ajax({
                                         type: "GET",
-                                        url: "http://192.168.106.100:8000/chart/bar",
+                                        url: "http://127.0.0.1:8000/chart/bar",
                                         dataType: 'json',
                                         success: function (result) {
                                             chart.setOption(result.data);
@@ -45,16 +39,47 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-sm-4">
+            <div class="col">
                 <div class="panel panel-default">
                     <div class="panel-heading">饼图</div>
                         <div class="panel-body">
                             图3
                         </div>
-                    </div>
                 </div>
+            </div>
+        </div>
+        <div id="col-md-2" id="sidebar" class="sidebar">
+            <div class="sidebar__inner">
+                <hr>
+                <h4><strong>快捷入口</strong></h4>
+                <hr>
+                <a class="dropdown-item" href="{% url 'chart:index' %}">首页</a>
+                <a class="dropdown-item" href="{% url 'chart:index' %}">新建</a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- 粘性侧边栏样式 -->
+<style>
+    .sidebar{
+        will-change: min-height;
+    }
+
+    .sidebar__inner{
+        transform: translate(0, 0);
+        transform: translate3d(0, 0, 0);
+        will-change: position, transform;
+    }
+</style>
+
+<!-- 引入粘性侧边栏 -->
+<script src="{% static 'jquery/jquery.sticky-sidebar.min.js' %}"></script>
+<script type="text/javascript">
+    $('#sidebar').stickySidebar({
+        topSpacing: 20,
+        bottomSpacing: 20,
+    });
+</script>
+
 {% endblock content %}
